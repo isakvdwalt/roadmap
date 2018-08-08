@@ -263,6 +263,9 @@ class PlansController < ApplicationController
     @plan = Plan.includes(:answers).find(params[:id])
     authorize @plan
 
+    phase_id = params[:phase_id]
+    @selected_phase_title = @plan.phases.where(id: phase_id)[0].title;
+
     @show_coversheet = params[:export][:project_details].present?
     @show_sections_questions = params[:export][:question_headings].present?
     @show_unanswered = params[:export][:unanswered_questions].present?
