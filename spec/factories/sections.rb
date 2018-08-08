@@ -26,7 +26,6 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph }
     sequence(:number)
-    published false
     phase
     modifiable false
   end
